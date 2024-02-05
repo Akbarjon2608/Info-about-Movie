@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #0c0c0c;
+}
+li {
+  list-style: none;
+}
+[class*="container"] {
+  max-width: 1000px;
+  margin: 0 auto;
+}

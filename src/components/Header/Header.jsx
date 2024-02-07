@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
 import { HeaderLogo } from "../../assets";
 import "./header.css";
+const data = [
+  { title: "Home", path: "/" },
+  {
+    title: "About",
+    path: "/about",
+  },
+];
 const Header = () => {
-  const data = [
-    { title: "Home", path: "/" },
-    {
-      title: "About",
-      path: "/about",
-    },
-    { title: "Poisk", path: "/poisk" },
-  ];
   return (
     <header className="header">
       <div className="header_container">
@@ -20,13 +20,14 @@ const Header = () => {
         </div>
         <nav className="nav">
           <ul className="nav_menu">
+            {data?.map((item, idx) => (
+              <li className="nav_item" key={idx}>
+                <Link to={item.path} className="nav_link">
+                  {item.title}
+                </Link>
+              </li>
+            ))}
             <li className="nav_item">
-              <a href="" className="nav_link">
-                Home
-              </a>
-              <a href="" className="nav_link">
-                About
-              </a>
               <a href="" className="nav_link">
                 poisk
               </a>

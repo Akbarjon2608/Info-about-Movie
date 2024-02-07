@@ -32,7 +32,7 @@
   color: red;
   border-bottom: 2px solid red;
 }
-.nav_item {
+.nav_item li {
   display: flex;
   align-items: center;
   gap: 35px;

@@ -1,5 +1,8 @@
 import { Header } from "./components/index";
 import { HomePage, AboutPage } from "./pages/index";
+import { Routes } from "react-router";
+import { Route } from "react-router";
+
 function App() {
   return (
     <>

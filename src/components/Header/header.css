@@ -5,12 +5,16 @@
   border-bottom-right-radius: 20px;
 }
 .header_logo img {
-  width: 70px;
+  width: 65px;
 }
-.header_logo span {
+.header_logo h1 {
   display: flex;
   align-items: center;
-  height: 100%;
+  font-size: 2.5rem;
+}
+.header_logo {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 .header_container {
@@ -38,5 +42,4 @@
 }
 .header_logo_text {
   color: #ffffff;
-  font-size: 3rem;
 }

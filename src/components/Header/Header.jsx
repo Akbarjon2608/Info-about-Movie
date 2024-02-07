@@ -1,14 +1,22 @@
 import { HeaderLogo } from "../../assets";
 import "./header.css";
 const Header = () => {
+  const data = [
+    { title: "Home", path: "/" },
+    {
+      title: "About",
+      path: "/about",
+    },
+    { title: "Poisk", path: "/poisk" },
+  ];
   return (
     <header className="header">
       <div className="header_container">
         <div className="header_logo">
           <img src={HeaderLogo} alt="" />
-          <span className="header_logo_text">
+          <h1 className="header_logo_text">
             Movie<span className="header_green_text">App</span>
-          </span>
+          </h1>
         </div>
         <nav className="nav">
           <ul className="nav_menu">

@@ -1,2 +1,3 @@
 import HeaderLogo from "./logo/clapperboard.png";
-export { HeaderLogo };
+import MoviePhoto from "./images/pexels-obregonia-d-toretto-918281.jpg";
+export { HeaderLogo, MoviePhoto };

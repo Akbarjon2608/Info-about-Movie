@@ -32,14 +32,15 @@
   color: red;
   border-bottom: 2px solid red;
 }
-.nav_item li {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
+
 .header_green_text {
   color: red;
 }
 .header_logo_text {
   color: #ffffff;
+}
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
 }

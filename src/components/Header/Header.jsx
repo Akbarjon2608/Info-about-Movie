@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { HeaderLogo } from "../../assets";
 import "./header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const data = [
   { title: "Home", path: "/" },
   {
@@ -29,7 +31,7 @@ const Header = () => {
             ))}
             <li className="nav_item">
               <a href="" className="nav_link">
-                poisk
+                <FontAwesomeIcon icon={faSearch} />
               </a>
             </li>
           </ul>

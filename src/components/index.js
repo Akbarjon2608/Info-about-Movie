@@ -1,3 +1,4 @@
 import Header from "./Header/Header";
-import HeaderMain from "./HeaderMain/HeaderMain";
-export { Header, HeaderMain };
+import Slider from "./Slider/Slider";
+import TopRated from "./TopRated/TopRared";
+export { Header, Slider, TopRated };

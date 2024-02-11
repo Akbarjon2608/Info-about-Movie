@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
-const HeaderMain = ({ data }) => {
+const HeaderMain = ({ data, ganresData }) => {
   return (
     <section className="section">
       <div className="main_container">
@@ -24,12 +24,10 @@ const HeaderMain = ({ data }) => {
             }}
           >
             {data?.results.map((item) => {
-              console.log(item?.genre_ids);
               const luboy = item?.genre_ids;
               const filteredList = luboy.map((item) =>
-                luboy?.genres?.find((ganresId) => ganresId?.id === item)
+                ganresData?.genres?.find((ganresId) => ganresId?.id === item)
               );
-              console.log(filteredList);
               return (
                 <SwiperSlide key={item?.id} className="slider_box">
                   <img
@@ -46,7 +44,17 @@ const HeaderMain = ({ data }) => {
                       <div className="slide_calendar">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                         <p>{item?.release_date}</p>
+                        {filteredList.map((item) => (
+                          <p key={item?.id}>
+                            {item?.name}
+                            {filteredList[filteredList.length - 1].name ===
+                            item?.name
+                              ? " "
+                              : " / "}
+                          </p>
+                        ))}
                       </div>
+
                       <button className="button">Show more</button>
                     </div>
                   </div>

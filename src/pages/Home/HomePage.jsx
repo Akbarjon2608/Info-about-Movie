@@ -1,10 +1,9 @@
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Axios } from "../../services/axios";
-import { endPoints } from "../../services/endpoint";
 import { useEffect, useState } from "react";
 import { Slider } from "../../components";
 import TopRared from "../../components/TopRated/TopRared";
+import { Movie } from "../../services/serviceApi";
 
 const HomePage = () => {
   const [data, setData] = useState(null);
@@ -12,16 +11,16 @@ const HomePage = () => {
   const [TopRatedData, setTopRatedData] = useState(null);
   useEffect(() => {
     const handleGetPopularMovie = async () => {
-      const data = await Axios.get(endPoints.popular);
-      setData(data.data);
+      const { response } = await new Movie().getPopular();
+      setData(response);
     };
     const handleGetGanres = async () => {
-      const data = await Axios.get(endPoints.ganerList);
-      setGanresData(data.data);
+      const { response } = await new Movie().getGanres();
+      setGanresData(response);
     };
     const handleGetTopRated = async () => {
-      const data = await Axios.get(endPoints.top_rated);
-      setTopRatedData(data.data);
+      const { response } = await new Movie().getTopRated();
+      setTopRatedData(response);
     };
     handleGetTopRated();
     handleGetGanres();

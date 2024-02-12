@@ -4,6 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 const HeaderMain = ({ data, ganresData }) => {
   return (
     <section className="section">
@@ -54,8 +55,13 @@ const HeaderMain = ({ data, ganresData }) => {
                           </p>
                         ))}
                       </div>
-
-                      <button className="button">Show more</button>
+                      <Link
+                        to={`about/${item?.id}-${item?.title
+                          .replaceAll(" ", "-")
+                          .toLowerCase()}`}
+                      >
+                        <button className="button">Show more</button>
+                      </Link>
                     </div>
                   </div>
                 </SwiperSlide>

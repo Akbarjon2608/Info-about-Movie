@@ -15,3 +15,15 @@ Axios.interceptors.request.use(async (config) => {
     },
   };
 });
+Axios.interceptors.response.use(
+  (response) => {
+    if (response && response.data) return response.data;
+    return response;
+  },
+  (error) => {
+    if (error.response.status) {
+      throw error.response.data;
+    }
+    return Promise.reject(error);
+  }
+);

@@ -3,4 +3,5 @@ export const endPoints = {
   top_rated: "/movie/top_rated",
   upcoming: "/movie/upcoming",
   ganerList: "/genre/movie/list",
+  getSingle: (MovieID) => `/movie/${MovieID}`,
 };

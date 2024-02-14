@@ -2,12 +2,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
 import { imageW300 } from "../../utils/ImageUrl";
-const TopRared = ({ TopRatedData }) => {
+const Upcoming = ({ UpcomingData }) => {
   return (
     <>
       <section className="top_rated">
         <div className="rated_container">
-          <h1 className="top_rated">Top Rated</h1>
+          <h1 className="top_rated">Upcoming</h1>
           <Swiper
             spaceBetween={100}
             slidesPerView={3}
@@ -18,7 +18,7 @@ const TopRared = ({ TopRatedData }) => {
               disableOnInteraction: false,
             }}
           >
-            {TopRatedData?.results?.map((item) => (
+            {UpcomingData?.results?.map((item) => (
               <SwiperSlide key={item?.id}>
                 <div className="rated_slides">
                   <img src={imageW300(item?.poster_path)} alt="" />
@@ -32,4 +32,4 @@ const TopRared = ({ TopRatedData }) => {
   );
 };
 
-export default TopRared;
+export default Upcoming;

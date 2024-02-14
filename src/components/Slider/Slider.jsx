@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
+import { imageW500 } from "../../utils/ImageUrl";
 const HeaderMain = ({ data, ganresData }) => {
   return (
     <section className="section">
@@ -31,10 +32,7 @@ const HeaderMain = ({ data, ganresData }) => {
               );
               return (
                 <SwiperSlide key={item?.id} className="slider_box">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${item?.backdrop_path}`}
-                    alt=""
-                  />
+                  <img src={imageW500(item?.backdrop_path)} alt="" />
                   <div className="slide_content">
                     <div className="slide_item">
                       <h1>{item?.original_title}</h1>
@@ -42,13 +40,13 @@ const HeaderMain = ({ data, ganresData }) => {
                         {item?.overview?.length > 65 &&
                           item?.overview?.slice(0, 65) + "..."}
                       </p>
-                      <div className="slide_calendar">
+                      <div className="slide_calendar" key={item?.id}>
                         <FontAwesomeIcon icon={faCalendarAlt} />
                         <p>{item?.release_date}</p>
                         {filteredList.map((item) => (
                           <p key={item?.id}>
                             {item?.name}
-                            {filteredList[filteredList.length - 1].name ===
+                            {filteredList[filteredList.length - 1]?.name ===
                             item?.name
                               ? " "
                               : " / "}

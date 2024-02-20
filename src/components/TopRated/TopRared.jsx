@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
 import { imageW300 } from "../../utils/ImageUrl";
+import { Link } from "react-router-dom";
 const TopRared = ({ TopRatedData }) => {
   return (
     <>
@@ -20,9 +21,15 @@ const TopRared = ({ TopRatedData }) => {
           >
             {TopRatedData?.results?.map((item) => (
               <SwiperSlide key={item?.id}>
-                <div className="rated_slides">
-                  <img src={imageW300(item?.poster_path)} alt="" />
-                </div>
+                <Link
+                  to={`about/${item?.id}-${item?.title
+                    .replaceAll(" ", "-")
+                    .toLowerCase()}`}
+                >
+                  <div className="rated_slides">
+                    <img src={imageW300(item?.poster_path)} alt="" />
+                  </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

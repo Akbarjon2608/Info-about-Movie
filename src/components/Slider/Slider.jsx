@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import { imageW500 } from "../../utils/ImageUrl";
-const HeaderMain = ({ data, ganresData }) => {
+import { DNA } from "react-loader-spinner";
+
+const HeaderMain = ({ data, ganresData, isLoader }) => {
   return (
     <section className="section">
       <div className="main_container">
@@ -25,44 +27,59 @@ const HeaderMain = ({ data, ganresData }) => {
               disableOnInteraction: false,
             }}
           >
-            {data?.results.map((item) => {
+            {data?.results.map((item, idx) => {
               const luboy = item?.genre_ids;
               const filteredList = luboy.map((item) =>
                 ganresData?.genres?.find((ganresId) => ganresId?.id === item)
               );
               return (
-                <SwiperSlide key={item?.id} className="slider_box">
-                  <img src={imageW500(item?.backdrop_path)} alt="" />
-                  <div className="slide_content">
-                    <div className="slide_item">
-                      <h1>{item?.original_title}</h1>
-                      <p>
-                        {item?.overview?.length > 65 &&
-                          item?.overview?.slice(0, 65) + "..."}
-                      </p>
-                      <div className="slide_calendar" key={item?.id}>
-                        <FontAwesomeIcon icon={faCalendarAlt} />
-                        <p>{item?.release_date}</p>
-                        {filteredList.map((item) => (
-                          <p key={item?.id}>
-                            {item?.name}
-                            {filteredList[filteredList.length - 1]?.name ===
-                            item?.name
-                              ? " "
-                              : " / "}
-                          </p>
-                        ))}
+                <>
+                  <SwiperSlide key={idx} className="slider_box">
+                    <img src={imageW500(item?.backdrop_path)} alt="" />
+                    <div className="slide_content">
+                      <div className="slide_item">
+                        <h1>{item?.original_title}</h1>
+                        <p>
+                          {item?.overview?.length > 65 &&
+                            item?.overview?.slice(0, 65) + "..."}
+                        </p>
+                        <div className="slide_calendar" key={item?.id}>
+                          <FontAwesomeIcon icon={faCalendarAlt} />
+                          <p>{item?.release_date}</p>
+                          {filteredList.map((item) => (
+                            <p key={item?.id}>
+                              {item?.name}
+                              {filteredList[filteredList.length - 1]?.name ===
+                              item?.name
+                                ? " "
+                                : " / "}
+                            </p>
+                          ))}
+                        </div>
+                        <Link
+                          to={`about/${item?.id}-${item?.title
+                            .replaceAll(" ", "-")
+                            .toLowerCase()}`}
+                        >
+                          <button className="button">Show more</button>
+                        </Link>
                       </div>
-                      <Link
-                        to={`about/${item?.id}-${item?.title
-                          .replaceAll(" ", "-")
-                          .toLowerCase()}`}
-                      >
-                        <button className="button">Show more</button>
-                      </Link>
                     </div>
-                  </div>
-                </SwiperSlide>
+                  </SwiperSlide>
+                  {isLoader && (
+                    <SwiperSlide>
+                      {" "}
+                      <DNA
+                        visible={true}
+                        height="140"
+                        width="140"
+                        ariaLabel="dna-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="dna-wrapper"
+                      />
+                    </SwiperSlide>
+                  )}
+                </>
               );
             })}
           </Swiper>

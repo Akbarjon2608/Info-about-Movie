@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const data = [
   { title: "Home", path: "/" },
+
   {
     title: "About",
     path: "/about",
   },
 ];
+const logo = [{ title: "Movie", path: "/" }];
 const Header = () => {
   return (
     <header className="header">
@@ -17,7 +19,12 @@ const Header = () => {
         <div className="header_logo">
           <img src={HeaderLogo} alt="" />
           <h1 className="header_logo_text">
-            Movie<span className="header_green_text">App</span>
+            {logo?.map((item, idx) => (
+              <li className="nav_item" key={idx}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            ))}
+            <span className="header_green_text">App</span>
           </h1>
         </div>
         <nav className="nav">

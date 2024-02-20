@@ -10,10 +10,15 @@ const HomePage = () => {
   const [ganresData, setGanresData] = useState(null);
   const [TopRatedData, setTopRatedData] = useState(null);
   const [UpcomingData, setUpcomingData] = useState(null);
+  const [isLoader, setIsloader] = useState(false);
   useEffect(() => {
     const handleGetPopularMovie = async () => {
+      setIsloader(true);
       const { response } = await new Movie().getPopular();
-      setData(response);
+      if (response) {
+        setIsloader(false);
+        setData(response);
+      }
     };
     const handleGetGanres = async () => {
       const { response } = await new Movie().getGanres();
@@ -34,7 +39,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <Slider data={data} ganresData={ganresData} />{" "}
+      <Slider data={data} ganresData={ganresData} isLoader={isLoader} />{" "}
       <TopRared TopRatedData={TopRatedData} />
       <Upcoming UpcomingData={UpcomingData} />
     </>

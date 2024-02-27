@@ -43,5 +43,13 @@ class Movie extends Component {
       return { error };
     }
   }
+  async getSearchResult(query) {
+    try {
+      const response = await Axios.get(endPoints.searchMovie(query));
+      return { response };
+    } catch (error) {
+      return { error };
+    }
+  }
 }
 export { Movie };

@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
-import { imageW300 } from "../../utils/ImageUrl";
+import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
 const TopRared = ({ TopRatedData }) => {
   return (

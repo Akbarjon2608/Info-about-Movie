@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HeaderLogo } from "../../assets";
+import { HeaderLogo } from "@assets";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -7,11 +7,12 @@ const data = [
   { title: "Home", path: "/" },
 
   {
-    title: "About",
-    path: "/about",
+    title: "Movies",
+    path: "/movies",
   },
 ];
 const logo = [{ title: "Movie", path: "/" }];
+const search = [{ path: "/search" }];
 const Header = () => {
   return (
     <header className="header">
@@ -36,11 +37,13 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-            <li className="nav_item">
-              <a href="" className="nav_link">
-                <FontAwesomeIcon icon={faSearch} />
-              </a>
-            </li>
+            {search?.map((item, idx) => (
+              <li className="nav_item" key={idx}>
+                <Link to={item.path}>
+                  <FontAwesomeIcon icon={faSearch} />
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

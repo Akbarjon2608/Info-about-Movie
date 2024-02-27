@@ -1,9 +1,9 @@
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
-import { Slider, Upcoming } from "../../components";
-import TopRared from "../../components/TopRated/TopRared";
-import { Movie } from "../../services/serviceApi";
+import { Slider, Upcoming } from "@components";
+import TopRared from "@components/TopRated/TopRared";
+import { Movie } from "@services/serviceApi";
 
 const HomePage = () => {
   const [data, setData] = useState(null);

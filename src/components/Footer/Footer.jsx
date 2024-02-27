@@ -1,4 +1,4 @@
-import { HeaderLogo } from "../../assets";
+import { HeaderLogo } from "@assets";
 import "./footer.css";
 const Footer = () => {
   return (

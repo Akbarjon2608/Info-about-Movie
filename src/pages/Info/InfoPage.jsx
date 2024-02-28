@@ -43,18 +43,25 @@ const InfoPage = () => {
                   </div>
                   <div className="title_second_box">
                     <ul>
-                      {singleData?.genres?.map((item) => (
+                      <span className="genres">Genres: </span>
+                      {singleData?.genres?.map((item, index) => (
                         <li key={item?.id} className="ganres_movie">
                           {item?.name}
+                          {index !== singleData.genres.length - 1 && (
+                            <span> /</span>
+                          )}
                         </li>
                       ))}
-                      <div className="movie_reating">
-                        <li className="movie-rating-bar">
-                          <h1>{singleData?.popularity}</h1>
-                        </li>
+                      <div className="popularity">
+                        <p className="genres">Popularity:</p>
+                        <div className="movie_reating">
+                          <li className="movie-rating-bar">
+                            {singleData?.popularity}
+                          </li>
+                        </div>
                       </div>
                       <div className="description">
-                        <li className="Review">Review:</li>
+                        <li className="Rewiew">Review:</li>
                         <li className="name_movie_description">
                           {singleData?.overview}
                         </li>

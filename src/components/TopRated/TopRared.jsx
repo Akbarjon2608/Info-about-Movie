@@ -15,7 +15,7 @@ const TopRared = ({ TopRatedData }) => {
             modules={[Autoplay]}
             loop
             autoplay={{
-              delay: 2500,
+              delay: 2000,
               disableOnInteraction: false,
             }}
           >

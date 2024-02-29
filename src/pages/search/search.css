@@ -38,3 +38,8 @@
   color: #fff;
   font-size: 2rem;
 }
+.search_ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

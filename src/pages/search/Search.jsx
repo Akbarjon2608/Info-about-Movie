@@ -32,27 +32,29 @@ const Search = () => {
           />
           <FontAwesomeIcon icon={faSearch} className="search_icon" />
         </div>
-        {search?.results?.map((item) => (
-          <li key={item?.id} className="search_box">
-            <Link
-              to={`/about/${item?.id}-${item?.title
-                .replaceAll(" ", "-")
-                .toLowerCase()}`}
-            >
-              <img src={imageW300(item.poster_path)} alt="" />
-            </Link>
-          </li>
-        ))}
-        {search?.results.length === 0 && (
-          <li className="search_error">
-            <FontAwesomeIcon
-              icon={faTriangleExclamation}
-              size="4x"
-              color="orange"
-            />
-            <h1 className="search_error-title">Movie isn't found</h1>
-          </li>
-        )}
+        <ul className="search_ul">
+          {search?.results?.map((item) => (
+            <li key={item?.id} className="search_box">
+              <Link
+                to={`/about/${item?.id}-${item?.title
+                  .replaceAll(" ", "-")
+                  .toLowerCase()}`}
+              >
+                <img src={imageW300(item.poster_path)} alt="" />
+              </Link>
+            </li>
+          ))}
+          {search?.results.length === 0 && (
+            <li className="search_error">
+              <FontAwesomeIcon
+                icon={faTriangleExclamation}
+                size="4x"
+                color="orange"
+              />
+              <h1 className="search_error-title">Movie isn't found</h1>
+            </li>
+          )}
+        </ul>
       </div>
     </div>
   );

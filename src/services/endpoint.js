@@ -4,5 +4,6 @@ export const endPoints = {
   upcoming: "/movie/upcoming",
   ganerList: "/genre/movie/list",
   getSingle: (MovieID) => `/movie/${MovieID}`,
+  generalSearch: (...param) => `/discover/movie?=${param}`,
   searchMovie: (query) => `/search/movie?query=${query}`,
 };

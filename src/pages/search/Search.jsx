@@ -8,18 +8,20 @@ import { useEffect, useState } from "react";
 import { Movie } from "@services/serviceApi";
 import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
+import { UseDebounce } from "../../hook/UseDebounce";
 const Search = () => {
   const [search, setSearch] = useState(null);
-
-  const handleSearch = async (e) => {
-    if (e) {
-      const { response } = await new Movie().getSearchResult(e);
-      setSearch(response);
-    }
-  };
+  const [searchingValue, setSearchingValue] = useState("");
+  const { debounceValue } = UseDebounce(searchingValue);
   useEffect(() => {
+    const handleSearch = async () => {
+      if (debounceValue) {
+        const { response } = await new Movie().getSearchResult(debounceValue);
+        setSearch(response);
+      }
+    };
     handleSearch();
-  }, []);
+  }, [debounceValue]);
 
   return (
     <div className="search">
@@ -28,7 +30,7 @@ const Search = () => {
           <input
             type="search"
             className="search_input"
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) => setSearchingValue(e.target.value)}
           />
           <FontAwesomeIcon icon={faSearch} className="search_icon" />
         </div>

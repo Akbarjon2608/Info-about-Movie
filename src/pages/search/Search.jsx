@@ -9,15 +9,21 @@ import { Movie } from "@services/serviceApi";
 import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
 import { UseDebounce } from "../../hook/UseDebounce";
+import { DNA } from "react-loader-spinner";
 const Search = () => {
   const [search, setSearch] = useState(null);
   const [searchingValue, setSearchingValue] = useState("");
+  const [loader, setLoader] = useState("");
   const { debounceValue } = UseDebounce(searchingValue);
   useEffect(() => {
     const handleSearch = async () => {
+      setLoader(true);
       if (debounceValue) {
         const { response } = await new Movie().getSearchResult(debounceValue);
-        setSearch(response);
+        if (response) {
+          setSearch(response);
+          setLoader(false);
+        }
       }
     };
     handleSearch();
@@ -34,29 +40,40 @@ const Search = () => {
           />
           <FontAwesomeIcon icon={faSearch} className="search_icon" />
         </div>
-        <ul className="search_ul">
-          {search?.results?.map((item) => (
-            <li key={item?.id} className="search_box">
-              <Link
-                to={`/about/${item?.id}-${item?.title
-                  .replaceAll(" ", "-")
-                  .toLowerCase()}`}
-              >
-                <img src={imageW300(item.poster_path)} alt="" />
-              </Link>
-            </li>
-          ))}
-          {search?.results.length === 0 && (
-            <li className="search_error">
-              <FontAwesomeIcon
-                icon={faTriangleExclamation}
-                size="4x"
-                color="orange"
-              />
-              <h1 className="search_error-title">Movie isn't found</h1>
-            </li>
-          )}
-        </ul>
+        {!loader ? (
+          <ul className="search_ul">
+            {search?.results?.map((item) => (
+              <li key={item?.id} className="search_box">
+                <Link
+                  to={`/about/${item?.id}-${item?.title
+                    .replaceAll(" ", "-")
+                    .toLowerCase()}`}
+                >
+                  <img src={imageW300(item.poster_path)} alt="" />
+                </Link>
+              </li>
+            ))}
+            {search?.results.length === 0 && (
+              <li className="search_error">
+                <FontAwesomeIcon
+                  icon={faTriangleExclamation}
+                  size="4x"
+                  color="orange"
+                />
+                <h1 className="search_error-title">Movie isn't found</h1>
+              </li>
+            )}
+          </ul>
+        ) : (
+          <DNA
+            visible={true}
+            height="140"
+            width="140"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        )}
       </div>
     </div>
   );

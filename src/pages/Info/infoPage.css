@@ -161,7 +161,7 @@ body {
   color: rgb(255, 166, 0);
 }
 .icon3.clicked {
-  color: rgb(255, 255, 0);
+  color: gold;
 }
 .second_box-icon {
   display: flex;

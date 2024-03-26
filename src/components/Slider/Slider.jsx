@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
-import { imageW500 } from "@utils/ImageUrl";
+import { imageW500, imageW300 } from "@utils/ImageUrl";
 import { DNA } from "react-loader-spinner";
 
 const HeaderMain = ({ data, ganresData, isLoader }) => {
@@ -67,6 +67,56 @@ const HeaderMain = ({ data, ganresData, isLoader }) => {
                           </Link>
                         </div>
                       </div>
+                    </>
+                  ) : (
+                    <DNA
+                      visible={true}
+                      height="140"
+                      width="140"
+                      ariaLabel="dna-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="dna-wrapper"
+                    />
+                  )}
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+        <div className="main_slider-box-mobile">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            modules={[Autoplay]}
+            loop
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+          >
+            {data?.results.map((item) => {
+              const luboy = item?.genre_ids;
+              const filteredList = luboy.map((item) =>
+                ganresData?.genres?.find((ganresId) => ganresId?.id === item)
+              );
+              return (
+                <SwiperSlide key={item?.id} className="slider_box--mobile">
+                  {!isLoader ? (
+                    <>
+                      <img
+                        src={imageW300(item?.backdrop_path)}
+                        alt=""
+                        className="slider_img-mobile"
+                      />
+                      <Link
+                        to={`about/${item?.id}-${item?.title
+                          .replaceAll(" ", "-")
+                          .toLowerCase()}`}
+                      >
+                        <div className="slide_content_mobile">
+                          <button className="button_mobile">Show more</button>
+                        </div>
+                      </Link>
                     </>
                   ) : (
                     <DNA

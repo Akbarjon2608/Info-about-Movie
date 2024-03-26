@@ -1,19 +1,26 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HeaderLogo } from "@assets";
-import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "./header.css";
+
 const data = [
   { title: "Home", path: "/" },
-
-  {
-    title: "Movies",
-    path: "/movies",
-  },
+  { title: "Movies", path: "/movies" },
 ];
+
 const logo = [{ title: "Movie", path: "/" }];
 const search = [{ path: "/search" }];
+
 const Header = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+    console.log(isActive);
+  };
+
   return (
     <header className="header">
       <div className="header_container">
@@ -28,11 +35,11 @@ const Header = () => {
             <span className="header_green_text">App</span>
           </h1>
         </div>
-        <nav className="nav">
-          <ul className="nav_menu">
+        <nav className={`nav ${isActive ? "active" : ""}`}>
+          <ul className="nav_menu nav_menu--mobile">
             {data?.map((item, idx) => (
               <li className="nav_item" key={idx}>
-                <Link to={item.path} className="nav_link">
+                <Link to={item.path} className="nav_link color">
                   {item.title}
                 </Link>
               </li>
@@ -46,8 +53,16 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+        <li className="burger" onClick={toggleMenu}>
+          <div className={`burger-icon ${isActive ? "active" : ""}`}>
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
+          </div>
+        </li>
       </div>
     </header>
   );
 };
+
 export default Header;

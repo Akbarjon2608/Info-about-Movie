@@ -43,3 +43,16 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+.loader {
+  margin-top: 20px;
+  width: 300px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.599);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+.search_loader {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}

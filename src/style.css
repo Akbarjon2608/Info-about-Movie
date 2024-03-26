@@ -7,7 +7,7 @@ a {
   color: #fff;
 }
 body {
-  background-color: #0c0c0c;
+  background-color: #000000;
 }
 li {
   list-style: none;
@@ -54,7 +54,7 @@ li {
   font-size: 15px;
   padding: 8px 17px;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   transition: 0.5s;
@@ -83,6 +83,21 @@ li {
   font-size: 2rem;
   font-weight: 700;
   font-family: sans-serif;
-  color: #fff;
+  color: #ffffff;
   margin-top: 40px;
+}
+.top_rated-img-mobile {
+  display: none;
+}
+@media screen and (max-width: 689.9px) {
+  .top_rated-img-mobile {
+    display: block;
+  }
+  .rated_slides {
+    display: flex;
+    justify-content: center;
+  }
+  .top_rated-img {
+    display: none;
+  }
 }

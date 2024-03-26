@@ -136,14 +136,11 @@ const MoviePage = () => {
           ))}
         </div>
       ) : (
-        <DNA
-          visible={true}
-          height="140"
-          width="140"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
+        <div className="search_loader">
+          <div className="loader"></div>
+          <div className="loader"></div>
+          <div className="loader"></div>
+        </div>
       )}
     </div>
   );

@@ -33,11 +33,11 @@ const Header = () => {
             <span className="header_green_text">App</span>
           </h1>
         </div>
-        <nav className={`nav ${isActive ? "active" : ""}`}>
-          <ul className="nav_menu nav_menu--mobile">
+        <nav className={isActive ? "nav.active" : "nav"}>
+          <ul className="nav_menu--mobile">
             {data?.map((item, idx) => (
               <li className="nav_item" key={idx}>
-                <Link to={item.path} className="nav_link color">
+                <Link to={item.path} className="nav_link-color">
                   {item.title}
                 </Link>
               </li>
@@ -51,19 +51,18 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <li className="burger" onClick={toggleMenu}>
-          <div className={isActive ? "burger-icon.active" : "burger-icon"}>
-            <div>
-              <Hamburger
-                toggled={isOpen}
-                toggle={setOpen}
-                size={45}
-                color="#fff"
-                duration={0.6}
-                rounded
-              />
-            </div>
-          </div>
+        <li
+          className={isActive ? "burger.active" : "burger"}
+          onClick={toggleMenu}
+        >
+          <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
+            size={30}
+            color="#fff"
+            duration={0.6}
+            rounded
+          />
         </li>
       </div>
     </header>

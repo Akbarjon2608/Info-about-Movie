@@ -50,31 +50,37 @@
 }
 @media screen and (max-width: 689.9px) {
   .burger {
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
-    width: 50px;
-    height: 58px;
+    margin-right: 10px;
     cursor: pointer;
-  }
-
-  .burger-icon {
-    width: 30px;
-    height: 20px;
-    transition: transform 0.4s ease;
   }
 
   .nav {
     display: none;
-    position: absolute;
-    width: 200px;
-    padding: 15px;
-    border-radius: 10px;
-    background: linear-gradient(-150deg, rgb(64, 158, 255), rgb(63, 128, 193));
-    top: 80px;
-    right: 15px;
   }
 
   .burger_mini {
     color: #fff;
+  }
+  .nav_menu--mobile {
+    position: absolute;
+    width: 100px;
+    padding: 15px;
+    height: 100px;
+    border-radius: 10px;
+    background: #2c212c;
+    top: 80px;
+    right: 15px;
+    z-index: 9999;
+  }
+  .nav_link-color {
+    margin: 10px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
   }
 }

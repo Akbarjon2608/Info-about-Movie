@@ -9,7 +9,6 @@ import { Movie } from "@services/serviceApi";
 import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
 import { UseDebounce } from "../../hook/UseDebounce";
-import { DNA } from "react-loader-spinner";
 const Search = () => {
   const [search, setSearch] = useState(null);
   const [searchingValue, setSearchingValue] = useState("");

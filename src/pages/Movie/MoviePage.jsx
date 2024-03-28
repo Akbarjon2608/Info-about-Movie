@@ -3,7 +3,6 @@ import { Movie } from "../../services/serviceApi";
 import { imageW300 } from "../../utils/ImageUrl";
 import { Link } from "react-router-dom";
 import "./movie.css";
-import { DNA } from "react-loader-spinner";
 const genres = [
   {
     id: 28,

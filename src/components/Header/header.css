@@ -45,7 +45,9 @@
   align-items: center;
   gap: 35px;
 }
-
+.burger {
+  display: none;
+}
 @media screen and (max-width: 689.9px) {
   .burger {
     display: block;
@@ -58,35 +60,7 @@
   .burger-icon {
     width: 30px;
     height: 20px;
-    position: relative;
     transition: transform 0.4s ease;
-  }
-
-  .line {
-    width: 100%;
-    height: 4px;
-    background-color: #ffffff;
-    margin: 6px auto;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-
-  .burger.active .line:nth-child(1),
-  .burger.active .line:nth-child(3) {
-    transform: rotate(45deg);
-  }
-
-  /* Скрытие второй линии при активации бургер-меню */
-  .burger.active .line:nth-child(2) {
-    opacity: 0;
-  }
-
-  /* Позиционирование первой и третьей линий после анимации */
-  .burger.active .line:nth-child(1) {
-    transform-origin: 5px 5px;
-  }
-
-  .burger.active .line:nth-child(3) {
-    transform-origin: 5px 15px;
   }
 
   .nav {
@@ -99,13 +73,8 @@
     top: 80px;
     right: 15px;
   }
-  .nav_menu--mobile {
-    flex-direction: column;
-  }
-  .color {
-    color: #ffffff;
-  }
-  .nav_link::before {
-    background-color: #fff;
+
+  .burger_mini {
+    color: #fff;
   }
 }

@@ -4,7 +4,7 @@ import { HeaderLogo } from "@assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
-
+import Hamburger from "hamburger-react";
 const data = [
   { title: "Home", path: "/" },
   { title: "Movies", path: "/movies" },
@@ -15,12 +15,10 @@ const search = [{ path: "/search" }];
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-
+  const [isOpen, setOpen] = useState(false);
   const toggleMenu = () => {
     setIsActive(!isActive);
-    console.log(isActive);
   };
-
   return (
     <header className="header">
       <div className="header_container">
@@ -54,10 +52,17 @@ const Header = () => {
           </ul>
         </nav>
         <li className="burger" onClick={toggleMenu}>
-          <div className={`burger-icon ${isActive ? "active" : ""}`}>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
+          <div className={isActive ? "burger-icon.active" : "burger-icon"}>
+            <div>
+              <Hamburger
+                toggled={isOpen}
+                toggle={setOpen}
+                size={45}
+                color="#fff"
+                duration={0.6}
+                rounded
+              />
+            </div>
           </div>
         </li>
       </div>

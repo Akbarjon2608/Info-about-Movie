@@ -13,7 +13,7 @@ li {
   list-style: none;
 }
 [class*="container"] {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .main_slider-box {
@@ -71,13 +71,20 @@ li {
   display: flex;
   gap: 5px;
 }
+
 .rated_slides {
   margin-top: 20px;
-  width: auto;
+  width: 10px;
   height: 450px;
+  object-fit: cover;
+}
+.rated_slides img:hover {
+  filter: brightness(30%);
 }
 .rated_slides img {
-  border-radius: 10px;
+  transform: filter 0.5s;
+  border-radius: 20px;
+  width: 200px;
 }
 .top_rated {
   font-size: 2rem;
@@ -86,6 +93,7 @@ li {
   color: #ffffff;
   margin-top: 40px;
 }
+
 .top_rated-img-mobile {
   display: none;
 }

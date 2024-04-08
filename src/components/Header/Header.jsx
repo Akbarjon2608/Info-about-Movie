@@ -37,7 +37,7 @@ const Header = () => {
           <ul className="nav_menu--mobile">
             {data?.map((item, idx) => (
               <li className="nav_item" key={idx}>
-                <Link to={item.path} className="nav_link-color">
+                <Link to={item.path} className=" nav_link nav_link-mobile">
                   {item.title}
                 </Link>
               </li>

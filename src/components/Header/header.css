@@ -48,6 +48,9 @@
 .burger {
   display: none;
 }
+.nav_link {
+  display: flex;
+}
 @media screen and (max-width: 689.9px) {
   .burger {
     display: flex;
@@ -75,7 +78,7 @@
     right: 15px;
     z-index: 9999;
   }
-  .nav_link-color {
+  .nav_link-mobile {
     margin: 10px 0;
     font-size: 20px;
     display: flex;

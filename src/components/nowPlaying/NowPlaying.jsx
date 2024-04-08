@@ -1,14 +1,15 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
 import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
-const Upcoming = ({ UpcomingData }) => {
+const NowPlaying = ({ NowPlayingData }) => {
   return (
     <>
       <section className="up_coming">
         <div className="rated_container">
-          <h1 className="top_rated">Upcoming</h1>
+          <h1 className="top_rated">Now playing</h1>
           <div className="top_rated-img">
             <Swiper
               spaceBetween={100}
@@ -16,11 +17,11 @@ const Upcoming = ({ UpcomingData }) => {
               modules={[Autoplay]}
               loop
               autoplay={{
-                delay: 2500,
+                delay: 2200,
                 disableOnInteraction: false,
               }}
             >
-              {UpcomingData?.results?.map((item) => (
+              {NowPlayingData?.results?.map((item) => (
                 <SwiperSlide key={item?.id}>
                   <Link
                     to={`about/${item?.id}-${item?.title
@@ -46,7 +47,7 @@ const Upcoming = ({ UpcomingData }) => {
                 disableOnInteraction: false,
               }}
             >
-              {UpcomingData?.results?.map((item) => (
+              {NowPlayingData?.results?.map((item) => (
                 <SwiperSlide key={item?.id}>
                   <Link
                     to={`about/${item?.id}-${item?.title
@@ -67,4 +68,4 @@ const Upcoming = ({ UpcomingData }) => {
   );
 };
 
-export default Upcoming;
+export default NowPlaying;

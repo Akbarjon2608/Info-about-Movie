@@ -35,6 +35,22 @@ class Movie extends Component {
       return { error };
     }
   }
+  async getNow_playing() {
+    try {
+      const response = await Axios.get(endPoints.now_playing);
+      return { response };
+    } catch (error) {
+      return { error };
+    }
+  }
+  async getRecommend() {
+    try {
+      const response = await Axios.get(endPoints.recommendations);
+      return { response };
+    } catch (error) {
+      return { error };
+    }
+  }
   async getSingle(id) {
     try {
       const response = await Axios.get(endPoints.getSingle(id));

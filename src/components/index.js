@@ -4,7 +4,7 @@ import TopRated from "./TopRated/TopRared";
 import Upcoming from "./Upcoming/Upcoming";
 import Footer from "./Footer/Footer";
 import NowPlaying from "./nowPlaying/NowPlaying";
-import Recommendations from "./recommend/Recommendations";
+import Recommendation from "./recommendations/Recommendation";
 
 export {
   Header,
@@ -13,5 +13,5 @@ export {
   Upcoming,
   Footer,
   NowPlaying,
-  Recommendations,
+  Recommendation,
 };

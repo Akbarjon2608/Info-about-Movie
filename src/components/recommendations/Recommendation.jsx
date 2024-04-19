@@ -1,16 +1,26 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
 import { imageW300 } from "@utils/ImageUrl";
 import { Link } from "react-router-dom";
-const Recommendations = ({ RecommendData }) => {
-  console.log(RecommendData);
+import { Movie } from "../../services/serviceApi";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+const Recommendation = ({ MovieId }) => {
+  const [recommendationData, setRecommendationData] = useState(null);
+  useEffect(() => {
+    const handleGetRecommendation = async () => {
+      const { response } = await new Movie().getRecommend();
+      setRecommendationData(response);
+    };
+    handleGetRecommendation();
+  }, [MovieId]);
+
   return (
     <>
-      <section className="up_coming">
+      <section className="top_rated">
         <div className="rated_container">
-          <h1 className="top_rated">Recommend</h1>
+          <h1 className="top_rated">Recommendation</h1>
           <div className="top_rated-img">
             <Swiper
               spaceBetween={100}
@@ -18,11 +28,11 @@ const Recommendations = ({ RecommendData }) => {
               modules={[Autoplay]}
               loop
               autoplay={{
-                delay: 2200,
+                delay: 2000,
                 disableOnInteraction: false,
               }}
             >
-              {RecommendData?.results?.map((item) => (
+              {recommendationData?.results?.map((item) => (
                 <SwiperSlide key={item?.id}>
                   <Link
                     to={`about/${item?.id}-${item?.title
@@ -44,11 +54,11 @@ const Recommendations = ({ RecommendData }) => {
               modules={[Autoplay]}
               loop
               autoplay={{
-                delay: 2500,
+                delay: 2000,
                 disableOnInteraction: false,
               }}
             >
-              {RecommendData?.results?.map((item) => (
+              {recommendationData?.results?.map((item) => (
                 <SwiperSlide key={item?.id}>
                   <Link
                     to={`about/${item?.id}-${item?.title
@@ -68,5 +78,7 @@ const Recommendations = ({ RecommendData }) => {
     </>
   );
 };
-
-export default Recommendations;
+Recommendation.propTypes = {
+  MovieId: PropTypes.string,
+};
+export default Recommendation;

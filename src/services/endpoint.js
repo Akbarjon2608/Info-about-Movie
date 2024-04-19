@@ -4,8 +4,8 @@ export const endPoints = {
   upcoming: "/movie/upcoming",
   ganerList: "/genre/movie/list",
   now_playing: "/movie/now_playing",
-  recommendations: "movie/movie_id/recommendations",
   getSingle: (MovieID) => `/movie/${MovieID}`,
+  getRecommendation: (MovieID) => `/movie/${MovieID}/recommendations`,
   generalSearch: (...param) => `/discover/movie?=${param}`,
   searchMovie: (query) => `/search/movie?query=${query}`,
 };

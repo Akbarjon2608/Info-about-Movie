@@ -3,8 +3,8 @@ import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { Slider, Upcoming } from "@components";
 import TopRared from "@components/TopRated/TopRared";
+import { NowPlaying, Recommendation } from "../../components";
 import { Movie } from "@services/serviceApi";
-import { NowPlaying, Recommendations } from "../../components";
 
 const HomePage = () => {
   const [data, setData] = useState(null);
@@ -12,7 +12,7 @@ const HomePage = () => {
   const [TopRatedData, setTopRatedData] = useState(null);
   const [UpcomingData, setUpcomingData] = useState(null);
   const [NowPlayingData, setNowPlayingData] = useState(null);
-  const [RecommendData, setRecommendData] = useState(null);
+
   const [isLoader, setIsloader] = useState(false);
   useEffect(() => {
     const handleGetPopularMovie = async () => {
@@ -39,11 +39,7 @@ const HomePage = () => {
       const { response } = await new Movie().getNow_playing();
       setNowPlayingData(response);
     };
-    const handleGetRecommendations = async () => {
-      const { response } = await new Movie().getRecommend();
-      setRecommendData(response);
-    };
-    handleGetRecommendations();
+
     handleGetNow_playing();
     handleGetUpcoming();
     handleGetTopRated();
@@ -56,7 +52,7 @@ const HomePage = () => {
       <TopRared TopRatedData={TopRatedData} />
       <Upcoming UpcomingData={UpcomingData} />
       <NowPlaying NowPlayingData={NowPlayingData} />
-      <Recommendations RecommendData={RecommendData} />
+      {/* <Recommendation movieId={movieId}/> */}
     </>
   );
 };

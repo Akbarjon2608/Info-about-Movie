@@ -43,17 +43,18 @@ class Movie extends Component {
       return { error };
     }
   }
-  async getRecommend() {
+
+  async getSingle(id) {
     try {
-      const response = await Axios.get(endPoints.recommendations);
+      const response = await Axios.get(endPoints.getSingle(id));
       return { response };
     } catch (error) {
       return { error };
     }
   }
-  async getSingle(id) {
+  async getRecommend(id) {
     try {
-      const response = await Axios.get(endPoints.getSingle(id));
+      const response = await Axios.get(endPoints.getRecommendation(id));
       return { response };
     } catch (error) {
       return { error };

@@ -6,7 +6,8 @@ import "./infoPage.css";
 import { DNA } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark, faStar } from "@fortawesome/free-solid-svg-icons";
-
+import { Recommendation } from "../../components";
+import PropTypes from "prop-types";
 const InfoPage = () => {
   const { id } = useParams();
   const MovieId = id.split("-")[0];
@@ -39,7 +40,6 @@ const InfoPage = () => {
         setSingleData(response);
         setError(error);
       }
-      console.log(response);
     };
 
     handleGetSingle();
@@ -205,8 +205,11 @@ const InfoPage = () => {
           )}
         </div>
       </div>
+      <Recommendation MovieId={MovieId} />
     </>
   );
 };
-
+InfoPage.propTypes = {
+  MovieId: PropTypes.string,
+};
 export default InfoPage;

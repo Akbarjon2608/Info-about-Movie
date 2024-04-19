@@ -104,9 +104,15 @@ li {
   .top_rated-img-mobile {
     display: block;
   }
-  .rated_slides {
+  .rated_slides_mobile {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .rated_slides_mobile img {
+    margin: 10px 0;
+    border-radius: 15px;
   }
   .top_rated-img {
     display: none;

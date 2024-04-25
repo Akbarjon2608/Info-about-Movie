@@ -36,7 +36,7 @@ li {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(to left, transparent, #000000);
+
   z-index: 2;
   top: 0;
   left: 0;
@@ -75,7 +75,6 @@ li {
 .rated_slides {
   margin-top: 20px;
   width: 10px;
-  height: 450px;
   object-fit: cover;
 }
 .rated_slides img:hover {
@@ -105,14 +104,18 @@ li {
     display: block;
   }
   .rated_slides_mobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
+    margin-top: 20px;
+    height: 450px;
+    object-fit: cover;
+  }
+  .rated_slides_mobile img:hover {
+    filter: brightness(30%);
   }
   .rated_slides_mobile img {
-    margin: 10px 0;
-    border-radius: 15px;
+    transform: filter 0.5s;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    width: 200px;
   }
   .top_rated-img {
     display: none;

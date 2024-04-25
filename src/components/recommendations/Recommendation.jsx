@@ -10,7 +10,7 @@ const Recommendation = ({ MovieId }) => {
   const [recommendationData, setRecommendationData] = useState(null);
   useEffect(() => {
     const handleGetRecommendation = async () => {
-      const { response } = await new Movie().getRecommend();
+      const { response } = await new Movie().getRecommend(MovieId);
       setRecommendationData(response);
     };
     handleGetRecommendation();

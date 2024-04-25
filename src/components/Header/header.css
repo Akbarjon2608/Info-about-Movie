@@ -73,7 +73,6 @@
     position: absolute;
     width: 100px;
     padding: 15px;
-    height: 100px;
     border-radius: 10px;
     background: #2c212c;
     top: 80px;
@@ -81,6 +80,7 @@
     z-index: 9999;
     margin: 10px 0;
     font-size: 20px;
+    flex-direction: column;
   }
   .nav_item {
     display: flex;

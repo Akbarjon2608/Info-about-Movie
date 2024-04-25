@@ -64,11 +64,13 @@ const Search = () => {
             )}
           </ul>
         ) : (
-          <div className="search_loader">
-            <div className="loader"></div>
-            <div className="loader"></div>
-            <div className="loader"></div>
-          </div>
+          debounceValue && (
+            <div className="search_loader">
+              <div className="loader"></div>
+              <div className="loader"></div>
+              <div className="loader"></div>
+            </div>
+          )
         )}
       </div>
     </div>

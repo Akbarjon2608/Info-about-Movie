@@ -114,7 +114,7 @@ const HeaderMain = ({ data, ganresData, isLoader }) => {
                           .toLowerCase()}`}
                       >
                         <div className="slide_content_mobile">
-                          <button className="button_mobile">Show more</button>
+                          <button className="button">Show more</button>
                         </div>
                       </Link>
                     </>

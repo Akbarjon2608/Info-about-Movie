@@ -50,7 +50,7 @@ const Recommendation = ({ MovieId }) => {
           <div className="top_rated-img-mobile">
             <Swiper
               spaceBetween={100}
-              slidesPerView={1}
+              slidesPerView={2}
               modules={[Autoplay]}
               loop
               autoplay={{

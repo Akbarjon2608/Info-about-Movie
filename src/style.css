@@ -105,7 +105,6 @@ li {
   }
   .rated_slides_mobile {
     margin-top: 20px;
-    height: 450px;
     object-fit: cover;
   }
   .rated_slides_mobile img:hover {

@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 0 20px;
+  margin-top: 40px;
 }
 .container {
   display: flex;
@@ -54,7 +54,7 @@ body {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 .ganres_movie {
   display: flex;

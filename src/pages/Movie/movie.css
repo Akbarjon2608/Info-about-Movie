@@ -30,6 +30,12 @@
   height: 250px;
   object-fit: cover;
 }
+.search_item {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .search_data {
   display: flex;
   justify-content: space-evenly;

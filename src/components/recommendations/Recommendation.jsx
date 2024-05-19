@@ -61,7 +61,7 @@ const Recommendation = ({ MovieId }) => {
               {recommendationData?.results?.map((item) => (
                 <SwiperSlide key={item?.id}>
                   <Link
-                    to={`about/${item?.id}-${item?.title
+                    to={`/about/${item?.id}-${item?.title
                       .replaceAll(" ", "-")
                       .toLowerCase()}`}
                   >
